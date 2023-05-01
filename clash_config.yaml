@@ -48,35 +48,40 @@ dns:
   enable: true
   enhanced-mode: fake-ip
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-    - https://doh.360.cn/dns-query
+  - tls://223.6.6.6:853
+  - https://120.53.53.53/dns-query
   fallback:
-    - https://dns.google/dns-query
-    - https://doh.opendns.com/dns-query
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.alidns.com/dns-query
-  default-nameserver:
-    - tls://1.0.0.1:853
-    - tls://8.8.4.4:853
-    - tls://9.9.9.11:853
-    - tls://223.6.6.6:853
-    - tls://120.53.53.53:853
+  - tls://208.67.220.220:853
+  - https://185.222.222.222/dns-query
   ipv6: true
   fallback-filter:
     geoip: true
+    geoip-code: CN
     ipcidr:
-      - 240.0.0.0/4
-      - 0.0.0.0/32
-      - 127.0.0.1/32
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+    - 255.255.255.255/32
     domain:
-      - +.google.com
-      - +.facebook.com
-      - +.twitter.com
-      - +.youtube.com
-      - +.google.cn
-      - +.googleapis.cn
-      - +.gvt1.com
+    - "+.google.com"
+    - "+.facebook.com"
+    - "+.youtube.com"
+    - "+.githubusercontent.com"
+    - "+.googlevideo.com"
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
   fake-ip-filter:
     #LAN
     - "*.lan"
@@ -87,7 +92,7 @@ dns:
     - "*.test"
     - "*.local"
     - "*.home.arpa"
-    #放行NTP服务"
+    #NTP服务
     - "time.*.com"
     - "time.*.gov"
     - "time.*.edu.cn"
@@ -111,94 +116,89 @@ dns:
     - "*.ntp.org.cn"
     - "+.pool.ntp.org"
     - "time1.cloud.tencent.com"
-    #放行网易云音乐"
-    - "music.163.com"
-    - "*.music.163.com"
-    - "*.126.net"
-    #百度音乐"
+    - "time-ios.apple.com"
+    #网易云音乐
+    - "+.music.163.com"
+    - "+.126.net"
+    #百度音乐
     - "musicapi.taihe.com"
     - "music.taihe.com"
-    #酷狗音乐"
+    #酷狗音乐
     - "songsearch.kugou.com"
     - "trackercdn.kugou.com"
-    #酷我音乐"
-    - "*.kuwo.cn"
-    #JOOX音乐"
+    #酷我音乐
+    - "+.kuwo.cn"
+    #JOOX音乐
     - "api-jooxtt.sanook.com"
     - "api.joox.com"
     - "joox.com"
-    #QQ音乐"
-    - "y.qq.com"
-    - "*.y.qq.com"
+    #QQ音乐
+    - "+.y.qq.com"
     - "streamoc.music.tc.qq.com"
     - "mobileoc.music.tc.qq.com"
     - "isure.stream.qqmusic.qq.com"
     - "dl.stream.qqmusic.qq.com"
     - "aqqmusic.tc.qq.com"
     - "amobile.music.tc.qq.com"
-    #虾米音乐"
-    - "*.xiami.com"
-    #咪咕音乐"
-    - "*.music.migu.cn"
-    - "music.migu.cn"
-    #Windows"
+    #虾米音乐
+    - "+.xiami.com"
+    #咪咕音乐
+    - "+.music.migu.cn"
+    #Windows
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
-    - "msftconnecttest.com"
-    - "msftncsi.com"
     - WORKGROUP
-    #QQ快捷登录"
-    - "localhost.ptlogin2.qq.com"
-    - "localhost.sec.qq.com"
-    #Game"
-    #Nintendo Switch"
+    #QQ快捷登录
+    - "+.localhost.ptlogin2.qq.com"
+    - "+.localhost.sec.qq.com"
+    #Game
+    #Nintendo Switch
     - "+.srv.nintendo.net"
-    #Sony PlayStation"
+    #Sony PlayStation
     - "+.stun.playstation.net"
-    #Microsoft Xbox"
-    - "xbox.*.microsoft.com"
-    - "xnotify.xboxlive.com"
+    #Microsoft Xbox
+    - "+.xbox.*.microsoft.com"
+    - "+.xnotify.xboxlive.com"
     - "+.ipv6.microsoft.com"
-    #Wotgame"
+    #Wotgame
     - "+.battlenet.com.cn"
     - "+.wotgame.cn"
     - "+.wggames.cn"
     - "+.wowsgame.cn"
     - "+.wargaming.net"
-    #Golang"
+    #Golang
     - "proxy.golang.org"
-    #STUN"
-    - "stun.*.*"
-    - "stun.*.*.*"
+    #STUN
+    - "+.stun.*"
     - "+.stun.*.*"
     - "+.stun.*.*.*"
     - "+.stun.*.*.*.*"
     - "+.pvp.net"
-    #Linksys Router"
-    - "heartbeat.belkin.com"
-    - "*.linksys.com"
-    - "*.linksyssmartwifi.com"
-    #ASUS Router"
-    - "*.router.asus.com"
-    #Apple Software Update Service"
-    - "mesu.apple.com"
-    - "swscan.apple.com"
-    - "swquery.apple.com"
-    - "swdownload.apple.com"
-    - "swcdn.apple.com"
-    - "swdist.apple.com"
-    #Google"
-    - "lens.l.google.com"
-    - "stun.l.google.com"
-    #Netflix"
+    #Linksys Router
+    - "+.heartbeat.belkin.com"
+    - "+.linksys.com"
+    - "+.linksyssmartwifi.com"
+    #ASUS Router
+    - "+.router.asus.com"
+    #Apple Software Update Service
+    - "+.mesu.apple.com"
+    - "+.swscan.apple.com"
+    - "+.swquery.apple.com"
+    - "+.swdownload.apple.com"
+    - "+.swcdn.apple.com"
+    - "+.swdist.apple.com"
+    #Google
+    - "+.lens.l.google.com"
+    - "+.stun.l.google.com"
+    #Netflix
     - "+.nflxvideo.net"
-    #FinalFantasy XIV Worldwide Server & CN Server"
-    - "*.square-enix.com"
-    - "*.finalfantasyxiv.com"
-    - "*.ffxiv.com"
-    - "*.ff14.sdo.com"
+    #FinalFantasy XIV
+    - "+.square-enix.com"
+    - "+.finalfantasyxiv.com"
+    - "+.ffxiv.com"
+    - "+.ff14.sdo.com"
     - "ff.dorado.sdo.com"
-    #Bilibili CN"
-    - "*.mcdn.bilivideo.cn"
-    #Disney Plus"
+    #Bilibili CN
+    - "+.mcdn.bilivideo.cn"
+    #Disney Plus
     - "+.media.dssott.com"
