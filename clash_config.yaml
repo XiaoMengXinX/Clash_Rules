@@ -49,7 +49,7 @@ dns:
   default-nameserver:
   - tls://1.0.0.1:853
   - tls://223.6.6.6:853
-  - https://120.53.53.53/dns-query
+  - 119.29.29.29
   ipv6: true
   fallback-filter:
     geoip: true
