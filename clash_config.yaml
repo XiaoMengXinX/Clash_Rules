@@ -58,30 +58,30 @@ dns:
     geoip: true
     geoip-code: CN
     ipcidr:
-    - 0.0.0.0/8
-    - 10.0.0.0/8
-    - 100.64.0.0/10
-    - 127.0.0.0/8
-    - 169.254.0.0/16
-    - 172.16.0.0/12
-    - 192.0.0.0/24
-    - 192.0.2.0/24
-    - 192.88.99.0/24
-    - 192.168.0.0/16
-    - 198.18.0.0/15
-    - 198.51.100.0/24
-    - 203.0.113.0/24
-    - 224.0.0.0/4
-    - 240.0.0.0/4
-    - 255.255.255.255/32
+      - 0.0.0.0/8
+      - 10.0.0.0/8
+      - 100.64.0.0/10
+      - 127.0.0.0/8
+      - 169.254.0.0/16
+      - 172.16.0.0/12
+      - 192.0.0.0/24
+      - 192.0.2.0/24
+      - 192.88.99.0/24
+      - 192.168.0.0/16
+      - 198.18.0.0/15
+      - 198.51.100.0/24
+      - 203.0.113.0/24
+      - 224.0.0.0/4
+      - 240.0.0.0/4
+      - 255.255.255.255/32
     domain:
-    - "+.google.com"
-    - "+.facebook.com"
-    - "+.youtube.com"
-    - "+.githubusercontent.com"
-    - "+.googlevideo.com"
-    - "+.msftconnecttest.com"
-    - "+.msftncsi.com"
+      - "+.google.com"
+      - "+.facebook.com"
+      - "+.youtube.com"
+      - "+.githubusercontent.com"
+      - "+.googlevideo.com"
+      - "+.msftconnecttest.com"
+      - "+.msftncsi.com"
   fake-ip-filter:
     #LAN
     - "*.lan"
@@ -115,6 +115,8 @@ dns:
     - "*.time.edu.cn"
     - "*.ntp.org.cn"
     - "+.pool.ntp.org"
+    - "ntp.*.cn"
+    - "clock.neu.edu.cn"
     - "time1.cloud.tencent.com"
     - "time-ios.apple.com"
     #网易云音乐
@@ -190,6 +192,19 @@ dns:
     #Google
     - "+.lens.l.google.com"
     - "+.stun.l.google.com"
+    #Firebase Cloud Messaging
+    - "fcm.googleapis.com"
+    #Huawei Push Service
+    - "+.push.hicloud.com"
+    - "+.push.dbankcloud.com"
+    #Xiaomi Push Service
+    - "api.xmpush.xiaomi.com"
+    #APNS
+    - "+.push.apple.com"
+    #OPPO Push Service
+    - "+.push.oppomobile.com"
+    #VIVO Push Service
+    - "api-push.vivo.com.cn"
     #Netflix
     - "+.nflxvideo.net"
     #FinalFantasy XIV
