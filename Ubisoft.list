@@ -1,0 +1,13 @@
+# Ubisoft规则
+DOMAIN,uplaypc-s-ubisoft.cdn.ubi.com
+DOMAIN-SUFFIX,ubi.com
+DOMAIN-SUFFIX,ubisoft-orbit-savegames.s3.amazonaws.com
+DOMAIN-SUFFIX,ubisoft-uplay-savegames.s3.amazonaws.com
+DOMAIN-SUFFIX,ubisoft.com
+DOMAIN-SUFFIX,uplay.com
+DOMAIN-SUFFIX,store.ubisoft.com
+DOMAIN-SUFFIX,public-ubiservices.ubi.com
+DOMAIN-SUFFIX,ubistatic-a.akamaihd.net
+DOMAIN-SUFFIX,ubistatic2-a.akamaihd.net
+DOMAIN-SUFFIX,ubistatic3-a.akamaihd.net
+DOMAIN-SUFFIX,ubisoft-avatars.akamaized.net
