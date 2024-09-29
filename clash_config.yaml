@@ -98,6 +98,7 @@ dns:
     - "time.*.com"
     - "time.*.gov"
     - "time.*.edu.cn"
+    - "ntp.ntsc.ac.cn"
     - "time.*.apple.com"
     - "time1.*.com"
     - "time2.*.com"
@@ -196,6 +197,8 @@ dns:
     - "+.stun.l.google.com"
     #Firebase Cloud Messaging
     - "fcm.googleapis.com"
+    - "mtalk.google.com"
+    - "alt*-mtalk.google.com"
     #Huawei Push Service
     - "+.push.hicloud.com"
     - "+.push.dbankcloud.com"
