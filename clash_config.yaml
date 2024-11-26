@@ -52,7 +52,7 @@ dns:
     - https://1.12.12.12/dns-query
   fallback:
     - tls://1.1.1.1:853
-    - http://208.67.222.222/dns-uery
+    - https://208.67.222.222/dns-uery
   ipv6: true
   fallback-filter:
     geoip: true
