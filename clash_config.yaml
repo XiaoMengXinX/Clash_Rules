@@ -53,6 +53,8 @@ dns:
   fallback:
     - tls://1.1.1.1:853
     - https://208.67.222.222/dns-uery
+  default-nameserver:
+    - 223.5.5.5
   ipv6: true
   fallback-filter:
     geoip: true
