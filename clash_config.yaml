@@ -49,14 +49,10 @@ dns:
   enhanced-mode: fake-ip
   nameserver:
     - tls://223.5.5.5:853
-    - tls://[2400:3200::1]:853
-    - tls://119.29.29.29:853
-    - tls://[2402:4e00::]:853
+    - https://1.12.12.12/dns-query
   fallback:
     - tls://1.1.1.1:853
-    - tls://[2606:4700:4700::1111]:853
-    - tls://94.140.14.140:853
-    - tls://[2a10:50c0::1:ff]:853
+    - http://208.67.222.222/dns-uery
   ipv6: true
   fallback-filter:
     geoip: true
