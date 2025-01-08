@@ -13,3 +13,15 @@ DOMAIN-SUFFIX,airstarbank.com
 
 #LIVI
 DOMAIN-SUFFIX,livibank.com
+
+#ICBCA
+DOMAIN-SUFFIX,icbcasia.com
+
+#WELAB
+DOMAIN-SUFFIX,welab.bank
+
+#ANTBANK
+DOMAIN-SUFFIX,antbank.hk
+
+#FUSION
+DOMAIN-SUFFIX,fusionbank.com
