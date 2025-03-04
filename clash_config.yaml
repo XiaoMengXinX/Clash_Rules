@@ -46,26 +46,19 @@ experimental:
 
 dns:
   enable: true
+  prefer-h3: true
   enhanced-mode: fake-ip
   default-nameserver:
     - 223.5.5.5
   nameserver:
-    - https://9.9.9.9/dns-query
     - https://208.67.222.222/dns-query
-    - https://77.88.8.8/dns-query
-    - tls://dns.sse.cisco.com
-    - tls://dns.umbrella.com
+    - https://9.9.9.9/dns-query
   direct-nameserver:
-    - https://223.5.5.5/dns-query
+    - https://223.5.5.5/dns-query#h3=true
   proxy-server-nameserver:
-    - https://223.5.5.5/dns-query
+    - https://223.5.5.5/dns-query#h3=true
   nameserver-policy:
-    "geosite:private": https://223.5.5.5/dns-query
-    "geosite:cn": https://223.5.5.5/dns-query
-    "国内媒体": https://223.5.5.5/dns-query
-    "国内站点": https://223.5.5.5/dns-query
-    "哔哩哔哩": https://223.5.5.5/dns-query
-    "网易云音乐": https://223.5.5.5/dns-query
+    "geosite:cn,private": https://223.5.5.5/dns-query#h3=true
   respect-rules: true
   ipv6: true
   fake-ip-filter:
