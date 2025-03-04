@@ -60,23 +60,12 @@ dns:
   proxy-server-nameserver:
     - https://223.5.5.5/dns-query
   nameserver-policy:
-    +.cloudflareclient.com: tls://1.1.1.1:853
-    +.securelogin.com.cn: system
-    captive.apple.com: system
-    hotspot.cslwifi.com: system
-    "*.m2m": system
-    injections.adguard.org: system
-    local.adguard.org: system
-    "*._tcp": system
-    "*.bogon": system
-    "*._msdcs": system
-    +.msftncsi.com: system
-    "geosite:private": system
-    "geosite:cn": https://223.5.5.5/dns-query#h3=true
-    "国内媒体": https://223.5.5.5/dns-query#h3=true
-    "国内站点": https://223.5.5.5/dns-query#h3=true
-    "哔哩哔哩": https://223.5.5.5/dns-query#h3=true
-    "网易云音乐": https://223.5.5.5/dns-query#h3=true
+    "geosite:private": https://223.5.5.5/dns-query
+    "geosite:cn": https://223.5.5.5/dns-query
+    "国内媒体": https://223.5.5.5/dns-query
+    "国内站点": https://223.5.5.5/dns-query
+    "哔哩哔哩": https://223.5.5.5/dns-query
+    "网易云音乐": https://223.5.5.5/dns-query
   respect-rules: true
   ipv6: true
   fake-ip-filter:
