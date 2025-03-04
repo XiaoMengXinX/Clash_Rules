@@ -59,6 +59,11 @@ dns:
   proxy-server-nameserver:
     - https://223.5.5.5/dns-query#h3=true
   nameserver-policy:
+    captive.apple.com: system
+    "国内媒体": https://223.5.5.5/dns-query#h3=true
+    "国内站点": https://223.5.5.5/dns-query#h3=true
+    "哔哩哔哩": https://223.5.5.5/dns-query#h3=true
+    "网易云音乐": https://223.5.5.5/dns-query#h3=true
     "geosite:cn,private": https://223.5.5.5/dns-query#h3=true
   respect-rules: true
   ipv6: true
