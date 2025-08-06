@@ -57,6 +57,13 @@ dns:
   proxy-server-nameserver:
     - https://223.5.5.5/dns-query
     - https://77.88.8.7/dns-query
+  nameserver-policy:
+    "国内媒体": tls://223.5.5.5:853
+    "国内站点": tls://223.5.5.5:853
+    "哔哩哔哩": tls://223.5.5.5:853
+    "网易云音乐": tls://223.5.5.5:853
+    "WeChat": tls://223.5.5.5:853
+    "geosite:cn,private": tls://223.5.5.5:853
   respect-rules: true
   ipv6: true
   fake-ip-filter:
