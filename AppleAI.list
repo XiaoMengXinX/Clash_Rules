@@ -10,6 +10,7 @@ DOMAIN,apple-relay.fastly-edge.com
 DOMAIN,apple-relay.apple.com
 DOMAIN,apple-relay.cloudflare.com
 DOMAIN,cp4.cloudflare.com
+DOMAIN-SUFFIX,ls.apple.com
 
 #DOMAIN,gateway.icloud.com
 #DOMAIN,apple-relay.mask.apple-dns.net
