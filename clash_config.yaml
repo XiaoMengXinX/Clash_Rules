@@ -1,48 +1,32 @@
-# 混合端口 HTTP和SOCKS5用一个端口
 mixed-port: 7890
-
-# HTTP 代理端口
-# port: 7890
-
-# SOCKS5 代理端口
-# socks-port: 7891
-
-# Linux 和 macOS 的 redir 代理端口 (如需使用此功能，请取消注释)
-# redir-port: 7892
-
-# 允许局域网的连接（可用来共享代理）
 allow-lan: true
-
-# 仅在将allow-lan设置为true时适用
-# #"*": 绑定所有IP地址
-# #192.168.122.11: 绑定单个IPv4地址
-# #"[aaaa::a8aa:ff:fe09:57d8]": 绑定单个IPv6地址
 bind-address: "*"
+
+unified-delay: false
+tcp-concurrent: true
+
 ipv6: true
-
-# 规则模式：rule（规则） / global（全局代理）/ direct（全局直连）/ script (脚本)
+udp: true
 mode: rule
+log-level: warning
 
-# 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
-# 5 个级别：silent / error / warning / info / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
-log-level: silent
+external-controller: "127.0.0.1:9090"
 
-# Clash 的 RESTful API
-external-controller: '127.0.0.1:9090'
+find-process-mode: strict
+global-client-fingerprint: chrome
 
-# 实验性功能
-experimental:
-  ignore-resolve-fail: true # 忽略 DNS 解析失败，默认值为 true
-  # interface-name: en0 # outbound interface name
+profile:
+  store-selected: true
+  store-fake-ip: true
 
-# 本地 SOCKS5 / HTTP(S) 服务认证
-# authentication:
-#  - "user1:pass1"
-#  - "user2:pass2"
+geox-url:
+  geoip: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat
+  geosite: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
+  mmdb: https://testingcf.jsdelivr.net/gh/alecthw/mmdb_china_ip_list@release/lite/Country.mmdb
+  asn: https://testingcf.jsdelivr.net/gh/xishang0128/geoip@release/GeoLite2-ASN.mmdb
 
-# 实验性功能 hosts, 支持通配符 (例如 *.clash.dev 甚至 *.foo.*.example.com)
-# 静态的域名 比 通配域名 具有更高的优先级 (foo.example.com 优先于 *.example.com)
-# 注意: hosts 在 fake-ip 模式下不生效
+geodata-mode: true
+geodata-loader: standard
 
 dns:
   enable: true
@@ -57,13 +41,6 @@ dns:
   proxy-server-nameserver:
     - https://223.5.5.5/dns-query
     - https://77.88.8.7/dns-query
-  nameserver-policy:
-    "国内媒体": tls://223.5.5.5:853
-    "国内站点": tls://223.5.5.5:853
-    "哔哩哔哩": tls://223.5.5.5:853
-    "网易云音乐": tls://223.5.5.5:853
-    "WeChat": tls://223.5.5.5:853
-    "geosite:cn,private": tls://223.5.5.5:853
   respect-rules: true
   ipv6: true
   fake-ip-filter:
