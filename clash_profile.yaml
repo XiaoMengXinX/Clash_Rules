@@ -1,0 +1,1798 @@
+proxy-providers:
+  sub:
+    url: PUT_YOUR_SUB_URL_HERE
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 60
+
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: warning
+
+ipv6: true
+udp: true
+unified-delay: false
+tcp-concurrent: true
+
+external-controller: "127.0.0.1:9090"
+
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+geox-url:
+  geoip: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat
+  geosite: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
+  mmdb: https://testingcf.jsdelivr.net/gh/alecthw/mmdb_china_ip_list@release/lite/Country.mmdb
+  asn: https://testingcf.jsdelivr.net/gh/xishang0128/geoip@release/GeoLite2-ASN.mmdb
+
+geodata-mode: true
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 24
+
+dns:
+  enable: true
+  enhanced-mode: fake-ip
+  default-nameserver:
+    - 223.5.5.5
+  nameserver:
+    - https://208.67.222.222/dns-query
+  nameserver-policy:
+    "geosite:private": system
+    "geosite:cn,apple":
+      - tls://223.5.5.5:853
+  direct-nameserver:
+    - tls://223.5.5.5:853
+  proxy-server-nameserver:
+    - tls://223.5.5.5:853
+  respect-rules: true
+  ipv6: true
+  fake-ip-filter:
+    - "geosite:connectivity-check"
+    - "geosite:private"
+    - "geosite:cn"
+    - +.example
+    - +.invalid
+    - +.localhost
+    - +.test
+    - +.local
+    - +.m2m
+    - +.injections.adguard.org
+    - +.local.adguard.org
+    - +._tcp
+    - +.bogon
+    - +._msdcs
+    - +.lan
+    - +.localdomain
+    - +.home.arpa
+    - +.10.in-addr.arpa
+    - +.16.172.in-addr.arpa
+    - +.17.172.in-addr.arpa
+    - +.18.172.in-addr.arpa
+    - +.19.172.in-addr.arpa
+    - +.20.172.in-addr.arpa
+    - +.21.172.in-addr.arpa
+    - +.22.172.in-addr.arpa
+    - +.23.172.in-addr.arpa
+    - +.24.172.in-addr.arpa
+    - +.25.172.in-addr.arpa
+    - +.26.172.in-addr.arpa
+    - +.27.172.in-addr.arpa
+    - +.28.172.in-addr.arpa
+    - +.29.172.in-addr.arpa
+    - +.30.172.in-addr.arpa
+    - +.31.172.in-addr.arpa
+    - +.168.192.in-addr.arpa
+    - +.254.169.in-addr.arpa
+    - time.*.com
+    - time.*.gov
+    - time.*.edu.cn
+    - ntp.ntsc.ac.cn
+    - time.*.apple.com
+    - time1.*.com
+    - time2.*.com
+    - time3.*.com
+    - time4.*.com
+    - time5.*.com
+    - time6.*.com
+    - time7.*.com
+    - ntp.*.com
+    - ntp1.*.com
+    - ntp2.*.com
+    - ntp3.*.com
+    - ntp4.*.com
+    - ntp5.*.com
+    - ntp6.*.com
+    - ntp7.*.com
+    - "*.time.edu.cn"
+    - "*.ntp.org.cn"
+    - +.pool.ntp.org
+    - ntp.*.cn
+    - clock.neu.edu.cn
+    - time1.cloud.tencent.com
+    - time-ios.apple.com
+    - +.music.163.com
+    - +.126.net
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - +.kuwo.cn
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - +.y.qq.com
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - +.xiami.com
+    - +.music.migu.cn
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+    - WORKGROUP
+    - +.localhost.ptlogin2.qq.com
+    - +.localhost.sec.qq.com
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - +.xbox.*.microsoft.com
+    - +.xnotify.xboxlive.com
+    - +.ipv6.microsoft.com
+    - +.battlenet.com.cn
+    - +.wotgame.cn
+    - +.wggames.cn
+    - +.wowsgame.cn
+    - +.wargaming.net
+    - proxy.golang.org
+    - +.stun.*
+    - +.stun.*.*
+    - +.stun.*.*.*
+    - +.stun.*.*.*.*
+    - +.pvp.net
+    - +.heartbeat.belkin.com
+    - +.linksys.com
+    - +.linksyssmartwifi.com
+    - +.router.asus.com
+    - +.mesu.apple.com
+    - +.swscan.apple.com
+    - +.swquery.apple.com
+    - +.swdownload.apple.com
+    - +.swcdn.apple.com
+    - +.swdist.apple.com
+    - +.lens.l.google.com
+    - +.stun.l.google.com
+    - fcm.googleapis.com
+    - mtalk.google.com
+    - alt*-mtalk.google.com
+    - +.push.hicloud.com
+    - +.push.dbankcloud.com
+    - api.xmpush.xiaomi.com
+    - +.push.apple.com
+    - +.push.oppomobile.com
+    - api-push.vivo.com.cn
+    - +.nflxvideo.net
+    - +.square-enix.com
+    - +.finalfantasyxiv.com
+    - +.ffxiv.com
+    - +.ff14.sdo.com
+    - ff.dorado.sdo.com
+    - +.mcdn.bilivideo.cn
+    - +.media.dssott.com
+
+proxy-groups:
+  # ---------- 顶层选择 ----------
+  - name: 节点选择
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+    type: select
+    proxies:
+      - 自动选择
+      - 节点备选
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - DIRECT
+
+  - name: 节点备选
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Loop.png
+    type: select
+    proxies:
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - DIRECT
+
+  - name: 手动选择
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Mouse.png
+    type: select
+    include-all-proxies: true
+    include-all-providers: true
+
+  # ---------- 应用分组 ----------
+  - name: Google
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: GoogleCN
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: Gemini
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/AI.png
+    type: select
+    proxies:
+      - 节点备选
+      - 手动选择
+      - 香港
+      - 日本
+      - 台湾
+      - 新加坡
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 通用代理
+      - 通用直连
+
+  - name: FCM
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: YouTube
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/YouTube.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: TikTok
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: Spotify
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Spotify.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: ChatGPT
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+    type: select
+    proxies:
+      - 节点备选
+      - 手动选择
+      - 日本
+      - 台湾
+      - 新加坡
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 香港
+      - 通用代理
+      - 通用直连
+
+  - name: Claude
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/AI.png
+    type: select
+    proxies:
+      - 节点备选
+      - 手动选择
+      - 日本
+      - 台湾
+      - 新加坡
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 香港
+      - 通用代理
+      - 通用直连
+
+  - name: AppleAI
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Siri.png
+    type: select
+    proxies:
+      - 节点备选
+      - 日本
+      - 台湾
+      - 新加坡
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 香港
+      - 通用代理
+      - 通用直连
+
+  - name: 巴哈姆特
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Bahamut.png
+    type: select
+    proxies:
+      - 台湾
+      - 通用代理
+      - 通用直连
+      - 手动选择
+
+  - name: 香港银行
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    type: select
+    proxies:
+      - 香港
+      - 通用直连
+      - 通用代理
+      - 手动选择
+
+  - name: 香港券商
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    type: select
+    proxies:
+      - 香港
+      - 通用直连
+      - 通用代理
+      - 手动选择
+
+  - name: 英国银行
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_Kingdom.png
+    type: select
+    proxies:
+      - 英国
+      - 通用代理
+      - 通用直连
+      - 手动选择
+
+  - name: Microsoft
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: OneDrive
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/OneDrive.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: Apple
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
+    type: select
+    proxies:
+      - 通用直连
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+
+  - name: APNS
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
+    type: select
+    proxies:
+      - 通用直连
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+
+  - name: Adobe
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Magic.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: WeChat
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/WeChat.png
+    type: select
+    proxies:
+      - 通用直连
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+
+  - name: Telegram
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: Discord
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Discord.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: Bing
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: Steam
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Steam.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: SteamCN
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Steam.png
+    type: select
+    proxies:
+      - 通用直连
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+
+  - name: SteamCDN
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Steam.png
+    type: select
+    proxies:
+      - 通用直连
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+
+  - name: HoYoGames
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Game.png
+    type: select
+    proxies:
+      - 通用直连
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+
+  - name: 国内站点
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
+    type: select
+    proxies:
+      - 通用直连
+      - DIRECT
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+
+  - name: 国外站点
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Streaming!CN.png
+    type: select
+    proxies:
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+      - 通用直连
+
+  - name: 广告
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Advertising.png
+    type: select
+    proxies:
+      - REJECT
+      - 通用代理
+      - 手动选择
+      - 通用直连
+
+  - name: 本地
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/WiFi.png
+    type: select
+    proxies:
+      - DIRECT
+      - 通用直连
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+
+  - name: 下载工具
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Download.png
+    type: select
+    proxies:
+      - DIRECT
+      - 通用直连
+      - 通用代理
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+
+  - name: 未归类
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png
+    type: select
+    proxies:
+      - 通用代理
+      - 通用直连
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 韩国
+      - 澳门
+      - 英国
+      - 德国
+      - 泰国
+      - 马来西亚
+      - 越南
+      - 印度
+      - 土耳其
+      - 阿根廷
+      - 菲律宾
+      - 俄罗斯
+      - 中国
+      - 手动选择
+
+  # ---------- 地区分组 ----------
+  - name: 香港
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    type: select
+    include-all: true
+    proxies:
+      - 香港 自动测速
+      - DIRECT
+    filter: '(?i)(香港|港|\b(HK|Hong Kong)\b)'
+
+  - name: 日本
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+    type: select
+    include-all: true
+    proxies:
+      - 日本 自动测速
+      - DIRECT
+    filter: '(?i)(日本|川日|东京|東京|大阪|泉日|埼玉|沪日|深日|日[ ]|日[0-9]|\b(JP|Japan)\b)'
+
+  - name: 美国
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    type: select
+    include-all: true
+    proxies:
+      - 美国 自动测速
+      - DIRECT
+    filter: '(?i)(美国|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\b(US|United States)\b)'
+
+  - name: 台湾
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png
+    type: select
+    include-all: true
+    proxies:
+      - 台湾 自动测速
+      - DIRECT
+    filter: '(?i)(台湾|台|新北|彰化|\b(TW|Taiwan)\b)'
+
+  - name: 新加坡
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
+    type: select
+    include-all: true
+    proxies:
+      - 新加坡 自动测速
+      - DIRECT
+    filter: '(?i)(新加坡|坡|狮城|\b(SG|Singapore)\b)'
+
+  - name: 韩国
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
+    type: select
+    include-all: true
+    proxies:
+      - 韩国 自动测速
+      - DIRECT
+    filter: '(?i)(韩国|韩|韓|首尔|\b(KR|Korea|KOR)\b)'
+
+  - name: 英国
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_Kingdom.png
+    type: select
+    include-all: true
+    proxies:
+      - 英国 自动测速
+      - DIRECT
+    filter: '(?i)(英国|伦敦|\b(UK|United Kingdom)\b)'
+
+  - name: 德国
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Germany.png
+    type: select
+    include-all: true
+    proxies:
+      - 德国 自动测速
+      - DIRECT
+    filter: '(?i)(德国|法兰克福|\b(DE|Germany)\b)'
+
+  - name: 泰国
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Thailand.png
+    type: select
+    include-all: true
+    proxies:
+      - 泰国 自动测速
+      - DIRECT
+    filter: '(?i)(泰国|曼谷|\b(TH|Thailand)\b)'
+
+  - name: 马来西亚
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Malaysia.png
+    type: select
+    include-all: true
+    proxies:
+      - 马来西亚 自动测速
+      - DIRECT
+    filter: '(?i)(马来西亚|吉隆坡|\b(MY|Malaysia)\b)'
+
+  - name: 越南
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Asia_Map.png
+    type: select
+    include-all: true
+    proxies:
+      - 越南 自动测速
+      - DIRECT
+    filter: '(?i)(越南|\b(VN|Vietnam)\b)'
+
+  - name: 印度
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/India.png
+    type: select
+    include-all: true
+    proxies:
+      - 印度 自动测速
+      - DIRECT
+    filter: '(?i)(印度|孟买|印度尼西亚|\b(IN|India)\b)'
+
+  - name: 土耳其
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Turkey.png
+    type: select
+    include-all: true
+    proxies:
+      - 土耳其 自动测速
+      - DIRECT
+    filter: '(?i)(土耳其|\b(TR|Turkey)\b)'
+
+  - name: 阿根廷
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Argentina.png
+    type: select
+    include-all: true
+    proxies:
+      - 阿根廷 自动测速
+      - DIRECT
+    filter: '(?i)(阿根廷|\b(AR|Argentina)\b)'
+
+  - name: 菲律宾
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Philippines.png
+    type: select
+    include-all: true
+    proxies:
+      - 菲律宾 自动测速
+      - DIRECT
+    filter: '(?i)(菲律宾|\b(PH|Philippines)\b)'
+
+  - name: 俄罗斯
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Russia.png
+    type: select
+    include-all: true
+    proxies:
+      - 俄罗斯 自动测速
+      - DIRECT
+    filter: '(?i)(俄罗斯|莫斯科|俄|\b(RU|Russia)\b)'
+
+  - name: 澳门
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Macao.png
+    type: select
+    include-all: true
+    proxies:
+      - 澳门 自动测速
+      - DIRECT
+    filter: '(?i)(澳门|\b(MO|Macau)\b)'
+
+  - name: 中国
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
+    type: select
+    include-all: true
+    proxies:
+      - 中国 自动测速
+      - DIRECT
+    filter: '(?i)(中国[^台]|回国)'
+
+  # ---------- 自动测速 ----------
+  - name: 自动选择
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    include-all: true
+
+  - name: 香港 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(香港|港|\b(HK|Hong Kong)\b)'
+
+  - name: 日本 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(日本|川日|东京|東京|大阪|泉日|埼玉|沪日|深日|日[ ]|日[0-9]|\b(JP|Japan)\b)'
+
+  - name: 美国 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    type: url-test
+    interval: 300
+    tolerance: 150
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(美国|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|\b(US|United States)\b)'
+
+  - name: 台湾 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(台湾|台|新北|彰化|\b(TW|Taiwan)\b)'
+
+  - name: 新加坡 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(新加坡|坡|狮城|\b(SG|Singapore)\b)'
+
+  - name: 韩国 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(韩国|韩|韓|首尔|\b(KR|Korea|KOR)\b)'
+
+  - name: 英国 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_Kingdom.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(英国|伦敦|\b(UK|United Kingdom)\b)'
+
+  - name: 德国 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Germany.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(德国|法兰克福|\b(DE|Germany)\b)'
+
+  - name: 泰国 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Thailand.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(泰国|曼谷|\b(TH|Thailand)\b)'
+
+  - name: 马来西亚 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Malaysia.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(马来西亚|吉隆坡|\b(MY|Malaysia)\b)'
+
+  - name: 越南 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Asia_Map.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(越南|\b(VN|Vietnam)\b)'
+
+  - name: 印度 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/India.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(印度|孟买|印度尼西亚|\b(IN|India)\b)'
+
+  - name: 土耳其 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Turkey.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(土耳其|\b(TR|Turkey)\b)'
+
+  - name: 阿根廷 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Argentina.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(阿根廷|\b(AR|Argentina)\b)'
+
+  - name: 菲律宾 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Philippines.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(菲律宾|\b(PH|Philippines)\b)'
+
+  - name: 俄罗斯 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Russia.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(俄罗斯|莫斯科|俄|\b(RU|Russia)\b)'
+
+  - name: 澳门 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Macao.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(澳门|\b(MO|Macau)\b)'
+
+  - name: 中国 自动测速
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
+    type: url-test
+    interval: 300
+    tolerance: 50
+    lazy: true
+    url: http://connect.rom.miui.com/generate_204
+    disable-udp: false
+    timeout: 5000
+    max-failed-times: 3
+    hidden: true
+    include-all: true
+    filter: '(?i)(中国[^台]|回国)'
+
+  # ---------- 通用出口 ----------
+  - name: 通用直连
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Direct.png
+    type: select
+    proxies:
+      - DIRECT
+      - 节点选择
+      - 手动选择
+
+  - name: 通用代理
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+    type: select
+    proxies:
+      - 节点选择
+      - DIRECT
+      - 手动选择
+
+rule-providers:
+  # ===== 本地 / 下载 =====
+  本地-LAN:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+  本地-Tailscale:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/XiaoMengXinX/Clash_Rules/master/tailscale.list
+  下载工具:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
+
+  # ===== 广告 =====
+  BanAD:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+  BanProgramAD:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+  广告-RejectIP:
+    type: http
+    behavior: ipcidr
+    interval: 86400
+    format: text
+    url: https://ruleset.skk.moe/Clash/ip/reject.txt
+
+  # ===== AI =====
+  AppleAI:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/XiaoMengXinX/Clash_Rules/refs/heads/master/AppleAI.list
+  Claude:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/XiaoMengXinX/Clash_Rules/master/claude.list
+  Gemini:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ArakawaHenri/Clash_Rules/master/clash/rules/google_gemini.list
+  Gemini-Blackmatrix:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list
+
+  # ===== Google / 通讯 =====
+  Google:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Google.list
+  GoogleCN:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCN.list
+  GoogleCN-ProxyIP:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCNProxyIP.list
+  FCM:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+  YouTube:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list
+  YouTube-Music:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTubeMusic.list
+  TikTok:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list
+  Spotify:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Spotify.list
+  ChatGPT:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list
+
+  # ===== 微软 / 苹果 / 其他应用 =====
+  Bing:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.list
+  Microsoft:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
+  OneDrive:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/OneDrive.list
+  APNS:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/XiaoMengXinX/Clash_Rules/master/apns.list
+  Apple:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+  Adobe:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/LM-Firefly/Rules/master/PROXY/Adobe.list
+  WeChat:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/xkww3n/Rules/refs/heads/main/source/wechat.txt
+  Telegram:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+  Discord:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Discord.list
+
+  # ===== 游戏 / 流媒体 =====
+  SteamCDN:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/main/rule/Steam_CDN.list
+  SteamCN:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+  Steam:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Steam.list
+  HoYoGames:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ArakawaHenri/Clash_Rules/master/clash/rules/hoyogames.list
+  巴哈姆特:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bahamut.list
+
+  # ===== 银行 / 券商 =====
+  香港银行:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/KujouYuko/ClashRules/refs/heads/main/Clash/Rules/HKBank.list
+  香港银行补全:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/XiaoMengXinX/Clash_Rules/master/HKBank.list
+  香港券商:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/KujouYuko/ClashRules/refs/heads/main/Clash/Rules/HKBroker.list
+  英国银行:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/KujouYuko/ClashRules/refs/heads/main/Clash/Rules/UKBank.list
+
+  # ===== 国内 / 国外 =====
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+  国内站点-UnBan:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+  ChinaDomain:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+  GFWList:
+    type: http
+    behavior: classical
+    interval: 86400
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list
+
+rules:
+  # ===== 本地 / 下载 =====
+  - GEOIP,LAN,本地,no-resolve
+  - RULE-SET,本地-LAN,本地,no-resolve
+  - RULE-SET,本地-Tailscale,本地,no-resolve
+  - RULE-SET,下载工具,下载工具,no-resolve
+
+  # ===== 广告 =====
+  - RULE-SET,BanAD,广告,no-resolve
+  - RULE-SET,BanProgramAD,广告,no-resolve
+  - RULE-SET,广告-RejectIP,广告,no-resolve
+
+  # ===== AI =====
+  - RULE-SET,AppleAI,AppleAI,no-resolve
+  - RULE-SET,Claude,Claude,no-resolve
+  - RULE-SET,Gemini,Gemini,no-resolve
+  - RULE-SET,Gemini-Blackmatrix,Gemini,no-resolve
+
+  # ===== Google / 通讯 =====
+  - RULE-SET,Google,Google,no-resolve
+  - RULE-SET,GoogleCN,GoogleCN,no-resolve
+  - RULE-SET,GoogleCN-ProxyIP,GoogleCN,no-resolve
+  - RULE-SET,FCM,FCM,no-resolve
+  - RULE-SET,YouTube,YouTube,no-resolve
+  - RULE-SET,YouTube-Music,YouTube,no-resolve
+  - RULE-SET,TikTok,TikTok,no-resolve
+  - RULE-SET,Spotify,Spotify,no-resolve
+  - RULE-SET,ChatGPT,ChatGPT,no-resolve
+
+  # ===== 微软 / 苹果 / 其他应用 =====
+  - RULE-SET,Bing,Bing,no-resolve
+  - RULE-SET,Microsoft,Microsoft,no-resolve
+  - RULE-SET,OneDrive,OneDrive,no-resolve
+  - RULE-SET,APNS,APNS,no-resolve
+  - RULE-SET,Apple,Apple,no-resolve
+  - RULE-SET,Adobe,Adobe,no-resolve
+  - RULE-SET,WeChat,WeChat,no-resolve
+  - RULE-SET,Telegram,Telegram,no-resolve
+  - RULE-SET,Discord,Discord,no-resolve
+
+  # ===== 游戏 / 流媒体 =====
+  - RULE-SET,SteamCDN,SteamCDN,no-resolve
+  - RULE-SET,SteamCN,SteamCN,no-resolve
+  - RULE-SET,Steam,Steam,no-resolve
+  - RULE-SET,HoYoGames,HoYoGames,no-resolve
+  - RULE-SET,巴哈姆特,巴哈姆特,no-resolve
+
+  # ===== 银行 / 券商 =====
+  - RULE-SET,香港银行,香港银行,no-resolve
+  - RULE-SET,香港银行补全,香港银行,no-resolve
+  - RULE-SET,香港券商,香港券商,no-resolve
+  - RULE-SET,英国银行,英国银行,no-resolve
+
+  # ===== 国内 / 国外 =====
+  - RULE-SET,ChinaCompanyIp,国内站点,no-resolve
+  - RULE-SET,国内站点-UnBan,国内站点,no-resolve
+  - RULE-SET,ChinaDomain,国内站点,no-resolve
+  - GEOIP,CN,国内站点
+  - RULE-SET,GFWList,国外站点,no-resolve
+
+  # ===== 兜底 =====
+  - MATCH,未归类
