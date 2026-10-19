@@ -1688,7 +1688,7 @@ rule-providers:
     behavior: classical
     interval: 86400
     format: text
-    url: https://raw.githubusercontent.com/KujouYuko/ClashRules/refs/heads/main/Clash/Rules/HKBank.list
+    url: https://gitlab.com/KujouYuko/clash_rules/-/raw/master/RuleSet/HKBank.list
   香港银行补全:
     type: http
     behavior: classical
@@ -1700,13 +1700,13 @@ rule-providers:
     behavior: classical
     interval: 86400
     format: text
-    url: https://raw.githubusercontent.com/KujouYuko/ClashRules/refs/heads/main/Clash/Rules/HKBroker.list
+    url: https://gitlab.com/KujouYuko/clash_rules/-/raw/master/RuleSet/HKSecurities.list
   英国银行:
     type: http
     behavior: classical
     interval: 86400
     format: text
-    url: https://raw.githubusercontent.com/KujouYuko/ClashRules/refs/heads/main/Clash/Rules/UKBank.list
+    url: https://gitlab.com/KujouYuko/clash_rules/-/raw/master/RuleSet/UKBank.list
 
   # ===== 国内 / 国外 =====
   ChinaCompanyIp:
