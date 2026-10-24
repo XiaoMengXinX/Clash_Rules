@@ -174,7 +174,7 @@ dns:
     - +.stun.l.google.com
     - fcm.googleapis.com
     - mtalk.google.com
-    - alt*-mtalk.google.com
+    - +.mtalk.google.com
     - +.push.hicloud.com
     - +.push.dbankcloud.com
     - api.xmpush.xiaomi.com
