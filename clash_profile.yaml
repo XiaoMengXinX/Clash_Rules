@@ -189,6 +189,7 @@ dns:
     - ff.dorado.sdo.com
     - +.mcdn.bilivideo.cn
     - +.media.dssott.com
+    - +.day.app
 
 proxy-groups:
   # ---------- 顶层选择 ----------
