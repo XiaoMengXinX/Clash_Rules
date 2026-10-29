@@ -190,6 +190,9 @@ dns:
     - +.mcdn.bilivideo.cn
     - +.media.dssott.com
     - +.day.app
+    - +.tailscale.com
+    - +.tailscale.io
+    - +.ts.net
 
 proxy-groups:
   # ---------- 顶层选择 ----------
