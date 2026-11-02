@@ -308,7 +308,7 @@ proxy-groups:
       - 通用直连
 
   - name: Gemini
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/AI.png
+    icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-gemini.png
     type: select
     proxies:
       - 节点备选
@@ -464,7 +464,7 @@ proxy-groups:
       - 通用直连
 
   - name: Claude
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/AI.png
+    icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/claude-ai.png
     type: select
     proxies:
       - 节点备选
