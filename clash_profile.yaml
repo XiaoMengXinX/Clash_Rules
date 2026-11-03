@@ -502,6 +502,7 @@ proxy-groups:
     type: select
     proxies:
       - 节点备选
+      - 手动选择
       - 日本
       - 台湾
       - 新加坡
@@ -663,7 +664,7 @@ proxy-groups:
       - 手动选择
 
   - name: Adobe
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Magic.png
+    icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/adobe.png
     type: select
     proxies:
       - 通用代理
@@ -965,24 +966,6 @@ proxy-groups:
       - DIRECT
       - 通用直连
       - 通用代理
-      - 香港
-      - 台湾
-      - 新加坡
-      - 日本
-      - 美国
-      - 韩国
-      - 澳门
-      - 英国
-      - 德国
-      - 泰国
-      - 马来西亚
-      - 越南
-      - 印度
-      - 土耳其
-      - 阿根廷
-      - 菲律宾
-      - 俄罗斯
-      - 中国
       - 手动选择
 
   - name: 下载工具
